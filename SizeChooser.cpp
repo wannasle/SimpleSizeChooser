@@ -14,7 +14,6 @@ double ZhuiZi::calculateLenghth(const SizeVector &v1, const SizeVector &v2)
     }
     double sum = 0;
     for (int i = 0; i < v1.size(); i++) {
-        //sum = sum + pow(v1[i], 2) - pow(v2[i], 2);
         sum += pow((v1[i] - v2[i]), 2);
     }
     sum = sqrt(sum);
@@ -24,10 +23,6 @@ double ZhuiZi::calculateLenghth(const SizeVector &v1, const SizeVector &v2)
 const ZhuiZi::SizeInfo &ZhuiZi::chooseSize(const SizeList &sl, const SizeVector &sv)
 {
     double minLenghth = calculateLenghth(sl[0].sizeVector, sv);
-    /*    int num = 0, i = 1;
-    for_each(sl.begin() + 1, sl.end(), [&](const SizeInfo &si) -> void {
-        
-    });*/
     int num = 0;
     for (int i = 1; i < sl.size(); i++) {
         if (minLenghth > calculateLenghth(sl[i].sizeVector, sv)) {
@@ -57,3 +52,7 @@ void ZhuiZi::printSizeInfo(const SizeInfo &si)
     }
     cout << endl;
 }
+
+bool ZhuiZi::readFromFile(SizeList &sl, const std::string &file) {}
+
+bool ZhuiZi::writeToFile(const SizeList &sl, const std::string &file) {}
